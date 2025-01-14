@@ -9,20 +9,21 @@ public class StatsServiceTest {
     @Test
         // Общая сумма продаж
     void testCalculateTotalSales() {
-        int[] monthlySales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expectedResult = 180;
+        // не вызываем тут метод  StatsService service = new StatsService(); - потому  что он в пакете -   см сроку 1
+        long[] monthlySales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long expectedResult = 8 + 15 + 13 + 15 + 17 + 20 + 19 + 20 + 7 + 14 + 14 + 18; // проссумировали массив, по идее должно быть 180;
 
-        int actualResult = StatsService.calculateTotalSales(monthlySales);
+        long actualResult = StatsService.calculateTotalSales(monthlySales);
         assertEquals(expectedResult, actualResult);
     }
 
     @Test
         // Средняя сумма продаж в месяц
     void testCalculateAverageMonthlySales() {
-        int[] monthlySales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expectedResult = 15;
+        long[] monthlySales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long expectedResult = 15;
 
-        int actualResult = StatsService.calculateAverageMonthlySales(monthlySales);
+        long actualResult = StatsService.calculateAverageMonthlySales(monthlySales);
 
         assertEquals(expectedResult, actualResult);
     }
@@ -30,7 +31,7 @@ public class StatsServiceTest {
     @Test
         // Месяц с максимальной суммой продаж
     void testFindMaxMonthIndex() {
-        int[] monthlySales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long[] monthlySales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expectedResult = 8;
 
         int actualResult = StatsService.findMaxMonthIndex(monthlySales);
@@ -39,9 +40,9 @@ public class StatsServiceTest {
     }
 
     @Test
-        // месяц с минимаьной продажей
+        // месяц с минимальной продажей
     void testFindMinMonthIndex() {
-        int[] monthlySales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long[] monthlySales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expectedResult = 9;
 
         int actualResult = StatsService.findMinMonthIndex(monthlySales);
@@ -53,7 +54,7 @@ public class StatsServiceTest {
     @Test
         //количество месяцев с продажами ниже среднего
     void testCountMonthsBelowAverage() {
-        int[] monthlySales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long[] monthlySales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expectedResult = 5;
 
         int actualResult = StatsService.countMonthsBelowAverage(monthlySales);
@@ -65,10 +66,10 @@ public class StatsServiceTest {
     @Test
         //количество месяцев с продажами выше среднего
     void testCountMonthsAboveAverage() {
-        int[] monthlySales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long[] monthlySales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expectedResult = 5;
 
-        int actualResult = StatsService.countMonthsAboveAverage(monthlySales);
+        int actualResult = StatsService.countMonthsBelowAverage(monthlySales);
 
         assertEquals(expectedResult, actualResult);
     }

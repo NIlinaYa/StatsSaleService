@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        int[] salesData = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long[] salesData = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         System.out.println("Общая сумма продаж: " + StatsService.calculateTotalSales(salesData));
         System.out.println("Средняя сумма продаж в месяц: " + StatsService.calculateAverageMonthlySales(salesData));
